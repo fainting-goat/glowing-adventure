@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+docker-compose -f docker-compose.yml -f docker-compose.test.yml run --rm app mix do ecto.create, ecto.migrate, test "$@"

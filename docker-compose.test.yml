@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  app:
+    build: .
+    volumes:
+      - "$HOME/.ssh:/tmp/host-ssh"
+      - "$PWD:/app"
+    environment:
+      MIX_ENV: test
+      DB_NAME: glowing-pg
+      PORT: 4000
+    networks:
+      - internal
+    ports:
+      - "4000:4000"
+    links:
+      - postgres
+    command: ["mix", "phx.server"]

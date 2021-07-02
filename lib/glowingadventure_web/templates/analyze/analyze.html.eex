@@ -1,0 +1,5 @@
+<%= Enum.map(top_twenty_five(@results), fn {key, value} -> %>
+<div>
+    <%= key %>: <%= value %>
+</div>
+<% end) %>
